@@ -1,9 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Fitness App</title>
+    <title>My Workouts</title>
 </head>
 <body>
-    <h1>Hello!</h1>
+    <h1>Workouts</h1>
+
+    {% for workout in workouts.all %}
+        <h2>{{ workout.name }} ({{ workout.date }})</h2>
+
+        <ul>
+            {% for exercise in workout.exercises.all %}
+                <li>
+                    <strong>{{ exercise.name }}</strong>
+                    <ul>
+                        {% for set in exercise.sets.all %}
+                            <li>{{ set.reps }} reps × {{ set.weight }} kg</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% empty %}
+        <p>No workouts yet.</p>
+    {% endfor %}
 </body>
 </html>
