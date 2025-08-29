@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Workouts</title>
-</head>
-<body>
-    <h1>Workouts</h1>
-
-    {% for workout in workouts.all %}
-        <h2>{{ workout.name }} ({{ workout.date }})</h2>
-
-        <ul>
-            {% for exercise in workout.exercises.all %}
-                <li>
-                    <strong>{{ exercise.name }}</strong>
-                    <ul>
-                        {% for set in exercise.sets.all %}
-                            <li>{{ set.reps }} reps × {{ set.weight }} kg</li>
-                        {% endfor %}
-                    </ul>
-                </li>
+    <link rel="stylesheet" href="style.css">
+  </head>
+    <body>
+    <h1>My Workouts</h1>
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="table-head">Workout Name</th>
+                    <th class="table-head">Workout Date</th>
+                    <th class="table-head">Exercises</th>
+                    <th class="table-head">Sets</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for workout in workouts.all%}
+                {% if workout.exercises.exists %}
+                    {% for exercise in workout.exercises.all%}
+                    <tr>
+                        {% if forloop.first %}
+                            <td rowspan="{{ workout.exercises.count }}" contenteditable="true">{{ workout.name }}</td>
+                            <td rowspan="{{ workout.exercises.count }}" contenteditable="true">{{ workout.date }}</td>
+                        {% endif %}
+                        <td>{{ exercise.name }}</td>
+                        <td>
+                            {% if exercise.sets.exists %}
+                                {% for set in exercise.sets.all %}
+                                    set {{ forloop.counter }}: {{ set.weight }} x {{ set.reps }}<br>
+                                {% endfor %}
+                            {% else %}
+                                No sets yet
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
             {% endfor %}
-        </ul>
-
-    {% empty %}
-        <p>No workouts yet.</p>
-    {% endfor %}
-</body>
+            </tbody>
+        </table>
+    </body>
 </html>
