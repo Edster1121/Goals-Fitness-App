@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+form p {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.register-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.helptext {
+    font-size: 0.7rem;
+    color: #555;
+    margin-top: 0.2rem;
+    display: block;
+}
+
+.errorlist {
+    font-size: 0.8rem;
+    color: #d93025;
+    margin: 0.2rem 0 0.5rem 0;
+    list-style: bullet;
+    padding-left: 0;
+}
+
+.password-help-text ul {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.3rem;
+    padding-left: 1rem;
+}
+
+.errorlist li {
+    margin: 0;
+}
+
+ul, li {
+    font-size: 0.7rem;
+    color: #555;
+    list-style: number;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    text-align: left;
+    padding-left: 0rem;
+    margin-left: 0.4rem;
+}

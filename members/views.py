@@ -6,7 +6,7 @@ from members.forms import SignUpForm
 
 
 def login_user(request):
-    return render(request, 'authenticate/login.html', {})
+    return render(request, 'registration/login.html', {})
 
 def register(request):
     if request.method == 'POST':
@@ -14,7 +14,8 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)  # log in immediately after registration
-            return redirect('index')  # redirect to your main page
+            return redirect('index')  # redirect to main page
     else:
         form = SignUpForm()
     return render(request, 'registration/register.html', {'form': form})
+
