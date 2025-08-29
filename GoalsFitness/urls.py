@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('', root_redirect, name='root-redirect'),
+    path('members/', include('members.urls')),
 ]
